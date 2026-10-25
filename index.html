@@ -359,9 +359,9 @@
 
 <script>
   /* ============ إعدادات ============ */
-  const WHATSAPP_NUMBER = "201119052812";                 // +20 11 19052812
-  const TEST_LINK = "........................";            // ← حط لينك التجربة هنا لما يجهز
-  const LOGO_SRC  = "WhatsApp Image 2026-09-21 at 1.45.58 PM.jpeg";       // ← حط لينك صورة اللوجو أو اسم الملف (مثال: "logo.jpg") لما تجهز
+  const WHATSAPP_NUMBER = "201038255702";                 // +20 103 8255702
+  const TEST_LINK = "https://web-dev-ms.github.io/site-zozka-fit/";   // رابط التجربة
+  const LOGO_SRC  = ".............................";       // ← حط لينك صورة اللوجو أو اسم الملف (مثال: "logo.jpg") لما تجهز
 
   /* ============ عناصر ============ */
   const $ = (id) => document.getElementById(id);
@@ -448,7 +448,7 @@
     if (!health) return fail("من فضلك اختار الحالة الصحية");
     if (health === "يوجد" && !healthText) return fail("من فضلك اكتب حالتك الصحية");
 
-    const line = "https://ahmedrapie1.github.io/site-zozka-fit/";
+    const line = "------------------------------";
     const lines = [
       "*طلب اشتراك جديد - ZOZKA FIT*",
       line,
@@ -469,7 +469,9 @@
       line
     ];
     const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
-    window.open(url, "_blank");
+    /* لو المتصفح منع النافذة الجديدة (زي متصفح انستجرام/فيسبوك أو بعض الموبايلات) نفتح واتساب في نفس الصفحة */
+    const w = window.open(url, "_blank");
+    if (!w) window.location.href = url;
   });
 </script>
 </body>
